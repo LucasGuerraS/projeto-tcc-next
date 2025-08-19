@@ -1,0 +1,32 @@
+.items {
+  	position: relative;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+	justify-content: flex-end;
+	gap: 20px;
+}
+
+.designpatternsfactory {
+  	position: relative;
+  	font-weight: 500;
+}
+
+.navigation {
+	width: 90%;
+  	position: relative;
+  	height: 164px;
+	margin-top: 30px;
+  	font-size: 20px;
+}
+
+.divider {
+	flex: 1;
+}
+
+.home {
+  	position: relative;
+  	line-height: 150%;
+  	font-weight: 500;
+  	cursor: pointer;
+}
