@@ -1,0 +1,15 @@
+import DefaultHeader from '@/components/factory/defaultHeader/defaultHeader';
+import styles from './index.module.css';
+import TrackClassBox from '@/components/factory/trackClassBox/trackClassBox';
+
+const AdapterTrack = () => {
+  return (
+    <div className={styles.content}>
+      <DefaultHeader />
+      <h1 className={styles.title}>Trilha Introdutória</h1>
+      <TrackClassBox title='Módulo 1 - Introdução aos padrões de Projeto' classesNames={['Hello Design Patterns!', 'Conhecendo os Patterns', 'Entendendo os Objetivos dos Patterns']} progress={2}/>
+    </div>
+  );
+};
+
+export default AdapterTrack;
