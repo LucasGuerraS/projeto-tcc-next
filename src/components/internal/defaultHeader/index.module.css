@@ -15,7 +15,7 @@
 .navigation {
 	width: 90%;
   	position: relative;
-  	height: 164px;
+  	height: 134px;
 	margin-top: 30px;
   	font-size: 20px;
 }
@@ -29,4 +29,11 @@
   	line-height: 150%;
   	font-weight: 500;
   	cursor: pointer;
+}
+
+.separator {
+	color: black;
+	height: 20px;
+	width: 1px;
+	background-color: black;
 }
