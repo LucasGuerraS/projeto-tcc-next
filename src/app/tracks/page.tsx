@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import styles from './index.module.css';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import TracksImage from '@/components/factory/trackImage/trackImage';
+import TracksImage from '@/components/internal/trackImage/trackImage';
 
 const AllTracks: NextPage = () => {
   return (
