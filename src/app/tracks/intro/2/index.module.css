@@ -5,7 +5,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-  	height: 100vh;
+  	height: 100%;
   	font-size: 14px;
   	color: #000;
   	font-family: Inter;
@@ -14,6 +14,8 @@
 }
 
 .text {
+	display: flex;
+	align-items: center;
     font-size: 14px;
     line-height: 1.5;
     text-align: left;
@@ -25,4 +27,9 @@
 
 .list {
 	list-style: disc;
+}
+
+.listOl {
+	list-style: decimal;
+	padding-left: 20px;
 }

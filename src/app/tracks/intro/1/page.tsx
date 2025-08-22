@@ -5,38 +5,73 @@ import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import Image from 'next/image';
 
-const AdapterOne = () => {
+const IntroOne = () => {
   return (
     <div className={styles.content}>
       <DefaultHeader />
-      <ClassButton path='/tracks/adapter/' />
-      <ClassTitle title='Aula 1 - Introdução ao padrão Adapter' />
+      <ClassButton path='/tracks/intro/' />
+      <ClassTitle title='Aula 1 - Hello Design Patterns!' />
       <p className={styles.text}>
-        Diferente dos outros dois design patterns apresentados, o Adapter é um
-        design pattern estrutural, ou seja, um tipo de design pattern que se
-        foca em relações entre objetos e classes, fazendo com que estas formem
-        um sistema mais flexível. Já padrões de projeto criacionais tem o
-        objetivo de abstrair a lógica de criação de objetos. Por fim existe um
-        terceiro tipo de padrão de projeto não abordado nas trilhas que é o
-        comportamental, este é focado em comunicação entre objetos, diminuir o
-        acoplamento e melhorar extensão de comportamento dos objetos.
-      </p>{' '}
+        Olá, bem vindo! Para entender boa parte do que está sendo abordado neste
+        curso é interessante um pouco de conhecimento prévio sobre alguns
+        conceitos de programação orientada à objetos já que boa parte dos
+        padrões que serão decorridos aqui são implementados em JAVA, e os
+        padrões selecionados seguem esse paradigma, porém a idéia de padrões de
+        projeto não se limita à um paradigma em específico ou linguagem de
+        programação e deve ser aplicada na maior quantidade de casos possíveis
+        sempre que possível! O intuito desse curso é promover conhecimento que
+        possa melhorar a experiência de desenvolvimento em um contexto que seja
+        agnóstico de paradigma e linguagem de programação, mas para que exista
+        uma oportunidade de prática real um limite foi traçado dentro do
+        contexto presente.
+      </p>
       <Image
         src='https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/oficinadosbits/media/uploads/produtos/foto/zurojqnv/file.png'
-        alt='Adapter Pattern'
+        alt='foo'
         width={250}
         height={100}
       />
       <p className={styles.text}>
-        Voltando ao adapter, este é um design pattern que faz com que duas
-        interfaces incompatíveis possam funcionar juntas, adaptando uma
-        interface para funcionar com a outra, parece complicado mas é mais
-        simples e efetivo do que parece! Quase como um adaptador de tomada, mas
-        com uma pitada de código!
+        Antes de tudo é importante entender o que as aulas presentes nas trilhas
+        oferecem, o objetivo da nossa causa é ensinar desenvolvedores o conceito
+        por trás de padrões de projetos e estimular seu uso juntamente com
+        diversas outras práticas de desenvolvimento, não é tido como objetivo
+        ensinar por detalhes todos os padrões de projetos existentes um por um,
+        e sim trazer à tona as características de um padrão de projeto, seus
+        benefícios, e como entender quando um pode ser necessário. <b> Sua
+        curiosidade te levará para as alturas.</b>
       </p>
-      <FinishClassButton path='/tracks/adapter/' />
+      <p className={styles.text}>
+        Para começar, a pergunta deve ser feita, o que são padrões de projeto?
+        Simples, são padrões de projeto feitos para solucionar problemas comuns
+        no mundo da programação, basicamente uma forma de bolo, que facilita
+        obter uma determinada forma de bolo quando desejado, mas ao invés de pão
+        de ló, usamos código e nosso resultado é muito menos tangível do que um
+        simples formato de bolo.
+      </p>
+      <Image
+        src='https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/oficinadosbits/media/uploads/produtos/foto/zurojqnv/file.png'
+        alt='foo'
+        width={250}
+        height={100}
+      />
+      <p className={styles.text}>
+        Podemos, continuando na linha do bolo, colocar um bolo em formato de
+        capivara usando nossa “forma” e um sem utilizá-la lado a lado, no caso
+        de um bolo é mais perceptível a diferença à primeira vista, porém quando
+        tratamos de código, o buraco é muito mais fundo. Um código que utiliza
+        dessas “formas” também conhecidas como padrões de projeto ou design
+        patterns, é geralmente, muito mais enxuto, principalmente no longo
+        prazo, fácil de ser expandido, lido e mantido por diferentes pessoas,
+        desde que elas também respeitem esses padrões, já que eles são regras de
+        convenção e muitas vezes abertas para interpretação, o que demanda uma
+        comunicação aberta e clara dentro de equipes de tecnologia. Mas por que
+        existem tantos benefícios quando os usamos? Bom, para isso precisamos
+        entender alguns princípios auto impostos
+      </p>
+      <FinishClassButton path='/tracks/intro/' />
     </div>
   );
 };
 
-export default AdapterOne;
+export default IntroOne;
