@@ -10,7 +10,7 @@ const AdapterThree = () => {
     <div className={styles.content}>
       <DefaultHeader />
       <ClassButton path='/tracks/adapter/' />
-      <ClassTitle title='Aula 2 - Continuação do padrão Adapter' />
+      <ClassTitle title='Aula 3 - Como usar o padrão Adapter' />
       <p className={styles.text}>
         O Adapter pode ser representado da seguinte forma em um diagrama UML:
       </p>
@@ -30,7 +30,7 @@ const AdapterThree = () => {
         seu construtor e chama o método esperado do serviço, com base no que o
         cliente espera.
       </p>
-      <FinishClassButton path='/tracks/adapter/' />
+      <FinishClassButton path='/tracks/adapter/quiz' />
     </div>
   );
 };

@@ -34,7 +34,7 @@ const AdapterOne = () => {
         simples e efetivo do que parece! Quase como um adaptador de tomada, mas
         com uma pitada de código!
       </p>
-      <FinishClassButton path='/tracks/adapter/'/>
+      <FinishClassButton path='/tracks/adapter/' />
     </div>
   );
 };
