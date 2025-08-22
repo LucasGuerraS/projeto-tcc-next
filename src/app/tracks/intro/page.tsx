@@ -15,6 +15,8 @@ const AdapterTrack = () => {
           'Entendendo os Objetivos dos Patterns',
         ]}
         progress={2}
+        track='/tracks/intro'
+        numbers={[1, 2, 3]}
       />
     </div>
   );

@@ -6,13 +6,14 @@ type ItemProps = {
   name: string;
   isCompleted: boolean;
   num: string;
+  path: string;
 };
 
-const TrackClassItem: React.FC<ItemProps> = ({ name, isCompleted, num }) => {
+const TrackClassItem: React.FC<ItemProps> = ({ name, isCompleted, num, path }) => {
   return (
     <div
       className={styles.containerItem}
-      onClick={() => console.log(`Clicked on ${name}`)}
+      onClick={() => window.location.href = path}
     >
       <Checkbox
         className={

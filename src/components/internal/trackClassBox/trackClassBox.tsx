@@ -5,9 +5,11 @@ type TrackClassBoxProps = {
   title: string;
   classesNames: string[];
   progress: number;
+  track: string;
+  numbers: number[];
 };
 
-const TrackClassBox: React.FC<TrackClassBoxProps> = ({ title, classesNames, progress }) => {
+const TrackClassBox: React.FC<TrackClassBoxProps> = ({ title, classesNames, progress, track, numbers }) => {
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
@@ -19,9 +21,10 @@ const TrackClassBox: React.FC<TrackClassBoxProps> = ({ title, classesNames, prog
           name={classesNames[0]}
           isCompleted={progress > 0}
           num='1'
+          path={`${track}/${numbers[0]}`}
         />
-        <TrackClassItem name={classesNames[1]} isCompleted={progress > 1} num='2' />
-        <TrackClassItem name={classesNames[2]} isCompleted={progress > 2} num='3' />
+        <TrackClassItem name={classesNames[1]} isCompleted={progress > 1} num='2' path={`${track}/${numbers[1]}`} />
+        <TrackClassItem name={classesNames[2]} isCompleted={progress > 2} num='3' path={`${track}/${numbers[2]}`} />
       </div>
     </div>
   );

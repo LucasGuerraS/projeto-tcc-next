@@ -15,6 +15,8 @@ const AdapterTrack = () => {
           'Como Implementar',
         ]}
         progress={2}
+        track='/tracks/factory'
+        numbers={[1, 2, 3]}
       />
       <TrackClassBox
         title='Módulo 2 - Aplicando o Padrão Factory'
@@ -24,6 +26,8 @@ const AdapterTrack = () => {
           'Quiz',
         ]}
         progress={0}
+        track='/tracks/factory'
+        numbers={[4, 5, 6]}
       />
     </div>
   );
