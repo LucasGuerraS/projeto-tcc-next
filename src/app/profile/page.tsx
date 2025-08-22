@@ -1,3 +1,5 @@
+'use client'
+
 import type { NextPage } from 'next';
 import styles from './index.module.css';
 import { Separator } from '@/components/ui/separator';
@@ -18,8 +20,7 @@ const Profile: NextPage = () => {
         <div className={styles.items}>
           <a className={styles.designpatternsfactory}>DesignPatternsFactory</a>
           <div className={styles.divider} />
-          <a className={styles.home}>Home</a>
-          <a className={styles.home}>Tracks</a>
+          <a className={styles.home} onClick={() => window.location.href = '/tracks'}>Tracks</a>
         </div>
       </header>
       <div className={styles.body}>
@@ -57,7 +58,7 @@ const Profile: NextPage = () => {
           <Progress className={styles.rightBar} id='progress' value={12} />
           <div>Progresso Geral</div>
           <Progress className={styles.rightBar} id='progress' value={0} />
-          <Button className={styles.rightButton}>Explorar trillhas</Button>
+          <Button className={styles.rightButton} onClick={() => window.location.href = '/tracks'}>Explorar trillhas</Button>
         </div>
       </div>
     </div>

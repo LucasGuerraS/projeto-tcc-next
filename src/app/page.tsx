@@ -1,3 +1,5 @@
+'use client'
+
 import type { NextPage } from 'next';
 import styles from './index.module.css';
 
@@ -6,9 +8,8 @@ const LandingPage: NextPage = () => {
     <div className={styles.landingPage}>
       <div className={styles.navigation}>
         <div className={styles.items3}>
-          <div className={styles.home}>Home</div>
           <div className={styles.button}>
-            <div className={styles.home}>Crie uma conta</div>
+            <div className={styles.home} onClick={() => window.location.href = '/login'}>Login</div>
           </div>
         </div>
         <div className={styles.designpatternsfactory}>
@@ -69,7 +70,7 @@ const LandingPage: NextPage = () => {
           </div>
         </div>
         <div className={styles.button1}>
-          <div className={styles.home}>Crie uma conta</div>
+          <div className={styles.home} onClick={() => window.location.href = '/signup'}>Crie uma conta</div>
         </div>
       </div>
     </div>
