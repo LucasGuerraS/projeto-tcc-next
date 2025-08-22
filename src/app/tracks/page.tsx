@@ -3,18 +3,12 @@ import styles from './index.module.css';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import TracksImage from '@/components/internal/trackImage/trackImage';
+import DefaultHeader from '@/components/internal/defaultHeader/defaultHeader';
 
 const AllTracks: NextPage = () => {
   return (
     <div className={styles.content}>
-      <header className={styles.navigation}>
-        <div className={styles.items}>
-          <a className={styles.designpatternsfactory}>DesignPatternsFactory</a>
-          <div className={styles.divider} />
-          <a className={styles.home}>Home</a>
-          <a className={styles.home}>Profile</a>
-        </div>
-      </header>
+      <DefaultHeader />
       <div className={styles.generalTitle}>
         <h1>Progressão Geral</h1>
         <Progress className={styles.progressBar} value={37} />
