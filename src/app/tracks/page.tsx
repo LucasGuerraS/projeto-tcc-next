@@ -32,6 +32,7 @@ const AllTracks: NextPage = () => {
             imageSource='https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
             imageTitle='Módulo introdutório'
             imageDesc='Realize o módulo de introdução para nivelar seu conhecimento com o esperado'
+            path='/tracks/intro'
           />
         </div>
         <div className={styles.allTracks}>
@@ -42,16 +43,19 @@ const AllTracks: NextPage = () => {
             imageSource='https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
             imageTitle='Factory'
             imageDesc='Aprenda mais sobre o Factory!'
+            path='/tracks/factory'
           />
           <TracksImage
             imageSource='https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
             imageTitle='Singleton'
             imageDesc='Aprenda mais sobre o Singleton!'
+            path='/tracks/singleton'
           />
           <TracksImage
             imageSource='https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
             imageTitle='Adapter'
             imageDesc='Aprenda mais sobre o Adapter!'
+            path='/tracks/adapter'
           />
         </div>
       </div>

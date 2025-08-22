@@ -4,6 +4,10 @@
 	align-items: center;
 	text-align: left;
 	width: 400px;
+	&:hover{
+		cursor: pointer;
+		background-color: #c0c0c0;
+	}
 }
 
 .profileBody{
