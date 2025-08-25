@@ -5,8 +5,14 @@ import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeEditor from '@/components/internal/codeEditor/codeEditor';
 
-const CONTENT = `public interface Bolo {
+const CONTENT_1 = `public interface Bolo {
     void prepararBolo();
+}`;
+
+const CONTENT_2 = `public class CapybaraCakeMaker {
+    public void makeCapybaraCake() {
+        System.out.println("Fazendo um delicioso bolo de capivara");
+    }
 }`;
 
 const AdapterThree = () => {
@@ -21,16 +27,30 @@ const AdapterThree = () => {
         poderia ser o cliente nesse caso e essa seria a interface esperada, já
         que os outros bolos seguem ela:
       </p>
-      <CodeEditor content={CONTENT} height='20vh' width='30%' />
+      <CodeEditor
+        content={CONTENT_1}
+        height='20vh'
+        width='30%'
+        minimap={false}
+      />
       <p className={styles.text}>
-        Podemos ver no diagrama apresentado como seria o esqueleto do adapter,
-        ou seja, temos uma classe que vamos chamar de cliente, que espera que os
-        objetos se comportem de determinada forma, nesse caso, tendo o
-        metodoEsperado, mas nosso serviço, que pode ser uma integração de
-        terceiros, não tem esse método, apenas o metodoDoServico então, nesse
-        caso nós fazemos um adaptador que recebe a instância desse serviço em
-        seu construtor e chama o método esperado do serviço, com base no que o
-        cliente espera.
+        Porém, o bolo de capivara não é do tipo Bolo, nem segue a interface
+        esperada, tendo o seguinte código:
+      </p>
+      <CodeEditor
+        content={CONTENT_2}
+        height='20vh'
+        width='30%'
+        minimap={false}
+      />
+      <p className={styles.text}>
+        Sendo assim precisamos fazer um adapter que seja capaz de fazer com que
+        nosso cliente seja capaz de criar um bolo de capivara sem alterar
+        nenhuma classe ou interface. É importante ressaltar que nesse casos nós
+        poderemos alterar a classe do bolo de capivara e não precisar aumentar a
+        complexidade do nosso código, porém, estamos apenas dando um exemplo,
+        mas em casos como esse é importante ponderar essa necessidade de
+        retrabalho.
       </p>
       <FinishClassButton path='/tracks/adapter/quiz' />
     </div>
