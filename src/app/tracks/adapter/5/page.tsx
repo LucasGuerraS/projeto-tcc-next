@@ -4,6 +4,7 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeEditor from '@/components/internal/codeEditor/codeEditor';
+import CodeRunner from '@/components/internal/codeRunner/codeRunner';
 
 const CONTENT_1 = `public class CapybaraCakeAdapter implements Bolo {
     private CapybaraCakeMaker adaptee;
@@ -19,23 +20,49 @@ const CONTENT_1 = `public class CapybaraCakeAdapter implements Bolo {
     }
 }`;
 
-const CONTENT_2 = `public class CapybaraCakeMaker {
+const CONTENT_2 = `interface Bolo {
+    void prepararBolo();
+}
+
+class CapybaraCakeMaker {
     public void makeCapybaraCake() {
         System.out.println("Fazendo um delicioso bolo de capivara");
     }
-}`;
+}
+
+class CapybaraCakeAdapter implements Bolo {
+    private CapybaraCakeMaker adaptee;
+
+    public CapybaraCakeAdapter(CapybaraCakeMaker adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    @Override
+    public void prepararBolo() {
+        // Adaptação de método
+        adaptee.makeCapybaraCake();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Suponha que seu sistema só trabalha com o tipo Bolo
+        Bolo meuBolo = new CapybaraCakeAdapter(new CapybaraCakeMaker());
+        // O cliente chama o método esperado, sem saber da adaptação
+        meuBolo.prepararBolo();
+    }
+}
+`;
 
 const AdapterThree = () => {
   return (
     <div className={styles.content}>
       <DefaultHeader />
       <ClassButton path='/tracks/adapter/' />
-      <ClassTitle title='Aula 1 - Aplicando o Adapter em código' />
+      <ClassTitle title='Aula 2 - Continuando a implementação do Adapter em código' />
       <p className={styles.text}>
-        Vamos seguir em nosso contexto confeiteiro e com nossa adoração por
-        capivaras! Nossa padaria quer muito servir bolos de capivara, a padaria
-        poderia ser o cliente nesse caso e essa seria a interface esperada, já
-        que os outros bolos seguem ela:
+        Agora vamos fazer nosso Adapter, ou seja, a classe que faz com que nosso
+        cliente seja capaz de usar a classe a ser adaptada!
       </p>
       <CodeEditor
         content={CONTENT_1}
@@ -45,24 +72,21 @@ const AdapterThree = () => {
         readOnly={true}
       />
       <p className={styles.text}>
-        Porém, o bolo de capivara não é do tipo Bolo, nem segue a interface
-        esperada, tendo o seguinte código:
+        Agora quando nossa padaria quiser fazer um bolo de capivara podemos
+        fazer da seguinte forma:{' '}
+        <b>
+          PS: Use o código abaixo como referência e o altere conforme desejar
+          para explorar sua funcionalidade e satisfazer sua curiosidade
+        </b>
       </p>
-      <CodeEditor
-        content={CONTENT_2}
-        height='10vh'
-        width='30%'
-        minimap={false}
-        readOnly={true}
-      />
+      <CodeRunner content={CONTENT_2} width={"30"} editorHeight={70} />
       <p className={styles.text}>
-        Sendo assim precisamos fazer um adapter que seja capaz de fazer com que
-        nosso cliente seja capaz de criar um bolo de capivara sem alterar
-        nenhuma classe ou interface. É importante ressaltar que nesse casos nós
-        poderemos alterar a classe do bolo de capivara e não precisar aumentar a
-        complexidade do nosso código, porém, estamos apenas dando um exemplo,
-        mas em casos como esse é importante ponderar essa necessidade de
-        retrabalho.
+        É importante sempre entender quando é necessário introduzir esse nível
+        extra de complexidade no código ou não, no nosso caso em especial não
+        seria necessário! Mas como o problema foi levantado arbitrariamente não
+        é de grande importância, mas assim como resolver problemas complexos é
+        importante, também é importante não deixar problemas simples mais
+        complicados que o necessário.
       </p>
       <FinishClassButton path='/tracks/adapter/quiz' />
     </div>

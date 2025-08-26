@@ -24,7 +24,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ content, height, width, minimap
           enabled: minimap,
         },
         padding: {
-          top: 0,
+          top: 8,
           bottom: 0
         },
         lineNumbers: 'on',
