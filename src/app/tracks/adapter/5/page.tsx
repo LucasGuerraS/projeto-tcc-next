@@ -5,8 +5,18 @@ import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeEditor from '@/components/internal/codeEditor/codeEditor';
 
-const CONTENT_1 = `public interface Bolo {
-    void prepararBolo();
+const CONTENT_1 = `public class CapybaraCakeAdapter implements Bolo {
+    private CapybaraCakeMaker adaptee;
+
+    public CapybaraCakeAdapter(CapybaraCakeMaker adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    @Override
+    public void prepararBolo() {
+        // Adaptação de método
+        adaptee.makeCapybaraCake();
+    }
 }`;
 
 const CONTENT_2 = `public class CapybaraCakeMaker {
@@ -29,7 +39,7 @@ const AdapterThree = () => {
       </p>
       <CodeEditor
         content={CONTENT_1}
-        height='10vh'
+        height='30vh'
         width='30%'
         minimap={false}
         readOnly={true}
@@ -54,7 +64,7 @@ const AdapterThree = () => {
         mas em casos como esse é importante ponderar essa necessidade de
         retrabalho.
       </p>
-      <FinishClassButton path='/tracks/adapter/' />
+      <FinishClassButton path='/tracks/adapter/quiz' />
     </div>
   );
 };
