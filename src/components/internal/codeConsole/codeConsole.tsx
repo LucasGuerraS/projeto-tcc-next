@@ -21,7 +21,6 @@ const CodeConsole: React.FC<CodeConsoleProps> = ({ code }) => {
     try {
       setError(false);
       const result = await runCode(code);
-      console.log(result);
       setIsLoading(false);
       if (result.run.code === 0) {
         setOutput(result.run.stdout);
