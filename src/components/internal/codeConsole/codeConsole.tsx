@@ -1,25 +1,45 @@
+import { PistonError, runCode } from '@/_clients/piston';
 import { Button } from '@/components/ui/button';
 import { PlayCircle } from 'lucide-react';
 import { useState } from 'react';
 import { ThreeDot } from 'react-loading-indicators';
+import { toast } from 'sonner';
 
-const CodeConsole: React.FC = () => {
+type CodeConsoleProps = {
+  code: string;
+};
+
+const CodeConsole: React.FC<CodeConsoleProps> = ({ code }) => {
   const [output, setOutput] = useState<string>(
     'Clique em "Executar" para ver o resultado'
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const handleClick = () => {
-    setOutput('Executando código...');
+  const handleClick = async () => {
     setIsLoading(true);
-    setTimeout(() => {
-      setOutput('Código executado com sucesso!');
+    setOutput('Executando código...');
+    try {
+      setError(false);
+      const result = await runCode(code);
+      console.log(result);
       setIsLoading(false);
-    }, 2000);
+      if (result.run.code === 0) {
+        setOutput(result.run.stdout);
+      } else {
+        setError(true);
+        setOutput(result.run.stderr);
+      }
+    } catch (error) {
+      toast.error('Erro ao executar o código', {
+        description: (error as PistonError).message || 'Erro desconhecido',
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <div
-      className={`w-full h-auto flex flex-col items-left bg-[#1e1e1e] text-white text-left pt-6 pl-4 pb-6 pr-4`}
+      className={`w-full h-auto flex flex-col items-left bg-[#1e1e1e] text-white text-left pt-6 pl-4 pb-20 pr-4`}
     >
       <Button
         onClick={handleClick}
@@ -35,7 +55,7 @@ const CodeConsole: React.FC = () => {
           </>
         )}
       </Button>
-      <p className={`mt-4 ${error ? 'text-red-500' : 'text-gray-300'}`}>
+      <p className={`mt-4 ${error ? 'text-red-500' : 'text-gray-400'}`}>
         {output}
       </p>
     </div>

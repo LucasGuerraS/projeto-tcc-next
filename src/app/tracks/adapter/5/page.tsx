@@ -20,7 +20,16 @@ const CONTENT_1 = `public class CapybaraCakeAdapter implements Bolo {
     }
 }`;
 
-const CONTENT_2 = `interface Bolo {
+const CONTENT_2 = `public class Main {
+    public static void main(String[] args) {
+        // Suponha que seu sistema só trabalha com o tipo Bolo
+        Bolo meuBolo = new CapybaraCakeAdapter(new CapybaraCakeMaker());
+        // O cliente chama o método esperado, sem saber da adaptação
+        meuBolo.prepararBolo();
+    }
+}
+
+interface Bolo {
     void prepararBolo();
 }
 
@@ -41,15 +50,6 @@ class CapybaraCakeAdapter implements Bolo {
     public void prepararBolo() {
         // Adaptação de método
         adaptee.makeCapybaraCake();
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        // Suponha que seu sistema só trabalha com o tipo Bolo
-        Bolo meuBolo = new CapybaraCakeAdapter(new CapybaraCakeMaker());
-        // O cliente chama o método esperado, sem saber da adaptação
-        meuBolo.prepararBolo();
     }
 }
 `;
@@ -79,7 +79,7 @@ const AdapterThree = () => {
           para explorar sua funcionalidade e satisfazer sua curiosidade
         </b>
       </p>
-      <CodeRunner content={CONTENT_2} width={"30"} editorHeight={70} />
+      <CodeRunner content={CONTENT_2} width={'30'} editorHeight={70} />
       <p className={styles.text}>
         É importante sempre entender quando é necessário introduzir esse nível
         extra de complexidade no código ou não, no nosso caso em especial não

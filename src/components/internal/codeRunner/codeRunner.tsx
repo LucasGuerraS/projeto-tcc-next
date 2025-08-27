@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import CodeConsole from '../codeConsole/codeConsole';
 import { Editor } from '@monaco-editor/react';
 
@@ -13,11 +14,17 @@ const LANGUAGE = 'java';
 
 const THEME = 'vs-dark';
 
-const CodeRunner: React.FC<CodeRunnerProps> = ({ content, width, editorHeight }) => {
+const CodeRunner: React.FC<CodeRunnerProps> = ({
+  content,
+  width,
+  editorHeight,
+}) => {
+  const [code, setCode] = useState<string>(content);
   return (
-    <div className={`w-${width}/100 h-auto flex flex-col mb-4 bg-stone-500`}>
+    <div className={`w-${width}/100 h-auto flex flex-col bg-stone-500`}>
       <Editor
-        defaultValue={content}
+        value={code}
+        onChange={(newValue) => setCode(newValue || '')}
         height={`${editorHeight}vh`}
         width='100%'
         options={{
@@ -35,7 +42,7 @@ const CodeRunner: React.FC<CodeRunnerProps> = ({ content, width, editorHeight })
         defaultLanguage={LANGUAGE}
         theme={THEME}
       />
-      <CodeConsole />
+      <CodeConsole code={code} />
     </div>
   );
 };
