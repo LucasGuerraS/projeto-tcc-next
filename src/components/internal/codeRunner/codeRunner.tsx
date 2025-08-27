@@ -6,7 +6,6 @@ import { Editor } from '@monaco-editor/react';
 
 type CodeRunnerProps = {
   content: string;
-  width: string;
   editorHeight: number;
 };
 
@@ -16,12 +15,11 @@ const THEME = 'vs-dark';
 
 const CodeRunner: React.FC<CodeRunnerProps> = ({
   content,
-  width,
   editorHeight,
 }) => {
   const [code, setCode] = useState<string>(content);
   return (
-    <div className={`w-${width}/100 h-auto flex flex-col bg-stone-500`}>
+    <div className={`w-[30%] h-auto flex flex-col bg-stone-500`}>
       <Editor
         value={code}
         onChange={(newValue) => setCode(newValue || '')}

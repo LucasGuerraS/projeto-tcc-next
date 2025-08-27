@@ -79,7 +79,7 @@ const AdapterThree = () => {
           para explorar sua funcionalidade e satisfazer sua curiosidade
         </b>
       </p>
-      <CodeRunner content={CONTENT_2} width={'30'} editorHeight={70} />
+      <CodeRunner content={CONTENT_2} editorHeight={70} />
       <p className={styles.text}>
         É importante sempre entender quando é necessário introduzir esse nível
         extra de complexidade no código ou não, no nosso caso em especial não
