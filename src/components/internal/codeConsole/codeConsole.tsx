@@ -30,6 +30,8 @@ const CodeConsole: React.FC<CodeConsoleProps> = ({ code }) => {
         setOutput(result.run.stderr);
       }
     } catch (error) {
+      setError(true);
+      setOutput('Erro ao executar o código');
       toast.error('Erro ao executar o código', {
         description: (error as PistonError).message || 'Erro desconhecido',
       });
@@ -39,7 +41,7 @@ const CodeConsole: React.FC<CodeConsoleProps> = ({ code }) => {
   };
   return (
     <div
-      className={`w-full h-auto flex flex-col items-left bg-[#1e1e1e] text-white text-left pt-6 pl-4 pb-20 pr-4`}
+      className={`w-full h-auto flex flex-col items-left bg-[#1e1e1e] text-white text-left pt-6 pl-6 pb-20 pr-6`}
     >
       <Button
         onClick={handleClick}
@@ -55,7 +57,10 @@ const CodeConsole: React.FC<CodeConsoleProps> = ({ code }) => {
           </>
         )}
       </Button>
-      <p className={`mt-4 ${error ? 'text-red-500' : 'text-gray-400'}`}>
+      <p className={`mt-4 ${error ? 'text-red-500' : 'text-green-500'} text-xl font-mono font-medium`}>
+        Output:
+      </p>
+      <p className={`mt-4 ${error ? 'text-red-500' : 'text-gray-400'} font-mono`}>
         {output}
       </p>
     </div>
