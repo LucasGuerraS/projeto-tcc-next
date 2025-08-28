@@ -7,30 +7,33 @@ import { toast } from 'sonner';
 
 type CodeConsoleProps = {
   code: string;
+  handleSuccess?: (code: string) => void;
 };
 
-const CodeConsole: React.FC<CodeConsoleProps> = ({ code }) => {
-  const [output, setOutput] = useState<string>(
-    'Clique em "Executar" para ver o resultado'
-  );
+const CodeConsole: React.FC<CodeConsoleProps> = ({ code, handleSuccess }) => {
+  const [output, setOutput] = useState<string[]>([
+    'Clique em "Executar" para ver o resultado',
+  ]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const handleClick = async () => {
     setIsLoading(true);
-    setOutput('Executando código...');
+    setOutput(['Executando código...']);
     try {
       setError(false);
       const result = await runCode(code);
+      console.log(result);
       setIsLoading(false);
       if (result.run.code === 0) {
-        setOutput(result.run.stdout);
+        setOutput(result.run.stdout.split('\n'));
+        handleSuccess?.(result.run.stdout);
       } else {
         setError(true);
-        setOutput(result.run.stderr);
+        setOutput([result.run.stderr]);
       }
     } catch (error) {
       setError(true);
-      setOutput('Erro ao executar o código');
+      setOutput(['Erro ao executar o código']);
       toast.error('Erro ao executar o código', {
         description: (error as PistonError).message || 'Erro desconhecido',
       });
@@ -56,12 +59,14 @@ const CodeConsole: React.FC<CodeConsoleProps> = ({ code }) => {
           </>
         )}
       </Button>
-      <p className={`mt-4 ${error ? 'text-red-500' : 'text-green-500'} text-xl font-mono font-medium`}>
+      <p className={`mt-4 mb-4 ${error ? 'text-red-500' : 'text-green-500'} text-xl font-mono font-medium`}>
         Output:
       </p>
-      <p className={`mt-4 ${error ? 'text-red-500' : 'text-gray-400'} font-mono`}>
-        {output}
-      </p>
+      {output.map((line, index) => (
+        <p className={`mt-2 ${error ? 'text-red-500' : 'text-gray-400'} font-mono`} key={index}>
+          {line}
+        </p>
+      ))}
     </div>
   );
 };

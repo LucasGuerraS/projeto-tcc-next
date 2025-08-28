@@ -7,6 +7,7 @@ import { Editor } from '@monaco-editor/react';
 type CodeRunnerProps = {
   content: string;
   editorHeight: number;
+  handleSuccess?: (code: string) => void;
 };
 
 const LANGUAGE = 'java';
@@ -16,6 +17,7 @@ const THEME = 'vs-dark';
 const CodeRunner: React.FC<CodeRunnerProps> = ({
   content,
   editorHeight,
+  handleSuccess,
 }) => {
   const [code, setCode] = useState<string>(content);
   return (
@@ -40,7 +42,7 @@ const CodeRunner: React.FC<CodeRunnerProps> = ({
         defaultLanguage={LANGUAGE}
         theme={THEME}
       />
-      <CodeConsole code={code} />
+      <CodeConsole code={code} handleSuccess={handleSuccess} />
     </div>
   );
 };
