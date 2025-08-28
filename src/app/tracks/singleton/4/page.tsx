@@ -15,7 +15,7 @@ const CONTENT_2 = `public class CapybaraCakeMaker {
     }
 }`;
 
-const AdapterFour = () => {
+const AdapterThree = () => {
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -59,4 +59,4 @@ const AdapterFour = () => {
   );
 };
 
-export default AdapterFour;
+export default AdapterThree;

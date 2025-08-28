@@ -54,7 +54,7 @@ class CapybaraCakeAdapter implements Bolo {
 }
 `;
 
-const AdapterFive = () => {
+const AdapterThree = () => {
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -88,9 +88,9 @@ const AdapterFive = () => {
         importante, também é importante não deixar problemas simples mais
         complicados que o necessário.
       </p>
-      <FinishClassButton path='/tracks/adapter/' />
+      <FinishClassButton path='/tracks/adapter/quiz' />
     </div>
   );
 };
 
-export default AdapterFive;
+export default AdapterThree;

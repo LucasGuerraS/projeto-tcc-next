@@ -55,7 +55,7 @@ class FlyingCapybaraCakeAdapter implements Bolo {}
 const EXPECTED =
   'Fazendo um delicioso bolo de capivara\nAssando um bolo de capivara voadora\n';
 
-const AdapterSix = () => {
+const AdapterThree = () => {
   const [completed, setCompleted] = useState<boolean>(false);
 
   const handleComplete = (code: string) => {
@@ -96,4 +96,4 @@ const AdapterSix = () => {
   );
 };
 
-export default AdapterSix;
+export default AdapterThree;

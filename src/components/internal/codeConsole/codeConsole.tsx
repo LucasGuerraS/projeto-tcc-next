@@ -29,7 +29,10 @@ const CodeConsole: React.FC<CodeConsoleProps> = ({ code, handleSuccess }) => {
         handleSuccess?.(result.run.stdout);
       } else {
         setError(true);
-        setOutput([result.run.stderr]);
+        setOutput(['Erro inesperado']);
+        toast.error('Erro ao executar o código', {
+          description: 'Erro desconhecido',
+        });
       }
     } catch (error) {
       setError(true);
@@ -59,11 +62,20 @@ const CodeConsole: React.FC<CodeConsoleProps> = ({ code, handleSuccess }) => {
           </>
         )}
       </Button>
-      <p className={`mt-4 mb-4 ${error ? 'text-red-500' : 'text-green-500'} text-xl font-mono font-medium`}>
+      <p
+        className={`mt-4 mb-4 ${
+          error ? 'text-red-500' : 'text-green-500'
+        } text-xl font-mono font-medium`}
+      >
         Output:
       </p>
       {output.map((line, index) => (
-        <p className={`mt-2 ${error ? 'text-red-500' : 'text-gray-400'} font-mono`} key={index}>
+        <p
+          className={`mt-2 ${
+            error ? 'text-red-500' : 'text-gray-400'
+          } font-mono`}
+          key={index}
+        >
           {line}
         </p>
       ))}
