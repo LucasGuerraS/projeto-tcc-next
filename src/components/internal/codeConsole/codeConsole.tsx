@@ -29,10 +29,9 @@ const CodeConsole: React.FC<CodeConsoleProps> = ({ code, handleSuccess }) => {
         handleSuccess?.(result.run.stdout);
       } else {
         setError(true);
-        setOutput(['Erro inesperado']);
-        toast.error('Erro ao executar o código', {
-          description: 'Erro desconhecido',
-        });
+        setOutput([
+          result.run.stderr == '' ? 'Erro desconhecido' : result.run.stderr,
+        ]);
       }
     } catch (error) {
       setError(true);

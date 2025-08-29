@@ -8,54 +8,73 @@ import FinishClassButton from '@/components/internal/classes/finishClassButton/p
 import CodeRunner from '@/components/internal/codeRunner/codeRunner';
 import { useState } from 'react';
 
-const CONTENT_1 = `public class Main {
+const CONTENT_1 = `// ---------- Classe Principal ----------
+public class Festa {
     public static void main(String[] args) {
-        Bolo meuBolo = new CapybaraCakeAdapter(new CapybaraCakeMaker());
+        System.out.println("Bem-vindo a Festa!");
 
-        meuBolo.prepararBolo();
+        // Singleton SomDaFesta
+        SomDaFesta som1 = new SomDaFesta();
+        som1.tocarMusica("Capivara Funk");
+        som1.mostrarStatus();
+
+        // Outra referência -- mesma instância
+        SomDaFesta som2 = new SomDaFesta();
+        som2.aumentarVolume();
+        som2.mostrarStatus();
+
+        // Comprovação: alterações feitas em som2 refletem em som1
+        som1.diminuirVolume();
+        som1.mostrarStatus();
     }
 }
 
-interface Bolo {
-    void prepararBolo();
-}
+// ---------- Singleton SomDaFesta ----------
+public class SomDaFesta {
 
-class CapybaraCakeMaker {
-    public void makeCapybaraCake() {
-        System.out.println("Fazendo um delicioso bolo de capivara");
-    }
-}
+    private int volume;
+    private String musicaAtual;
 
-class CapybaraCakeAdapter implements Bolo {
-    private CapybaraCakeMaker adaptee;
-
-    public CapybaraCakeAdapter(CapybaraCakeMaker adaptee) {
-        this.adaptee = adaptee;
+    public SomDaFesta() {
+        this.volume = 5; // volume inicial
+        this.musicaAtual = "Nenhuma musica tocando";
     }
 
-    @Override
-    public void prepararBolo() {
-        // Adaptação de método
-        adaptee.makeCapybaraCake();
+    public void aumentarVolume() {
+        if (volume < 10) {
+            volume++;
+            System.out.println("Volume aumentado para " + volume);
+        } else {
+            System.out.println("Volume ja está no maximo!");
+        }
+    }
+
+    public void diminuirVolume() {
+        if (volume > 0) {
+            volume--;
+            System.out.println("Volume diminuido para " + volume);
+        } else {
+            System.out.println("Volume ja está no mínimo!");
+        }
+    }
+
+    public void tocarMusica(String musica) {
+        this.musicaAtual = musica;
+        System.out.println("Agora tocando: " + musicaAtual);
+    }
+
+    public void mostrarStatus() {
+        System.out.println("Status do Som:");
+        System.out.println(" - Volume: " + volume);
+        System.out.println(" - Musica atual: " + musicaAtual);
     }
 }
-
-// Nova classe com interface diferente
-class FlyingCapybaraCakeCreator {
-    public void bakeFlyingCake() {
-        System.out.println("Assando um bolo de capivara voadora");
-    }
-}
-
-// Adapter para FlyingCapybaraCakeCreator
-class FlyingCapybaraCakeAdapter implements Bolo {}
-
 `;
 
 const EXPECTED =
-  'Fazendo um delicioso bolo de capivara\nAssando um bolo de capivara voadora\n';
+  'Bem-vindo a Festa!\nAgora tocando: Capivara Funk\nStatus do Som:\n - Volume: 5\n - Musica atual: Capivara Funk\nVolume aumentado para 6\nStatus do Som:\n - Volume: 6\n - Musica atual: Capivara Funk\nVolume diminuido para 5\nStatus do Som:\n - Volume: 5\n - Musica atual: Capivara Funk\n';
 
-const AdapterThree = () => {
+const SingletonSix = () => {
   const [completed, setCompleted] = useState<boolean>(false);
 
   const handleComplete = (code: string) => {
@@ -67,16 +86,15 @@ const AdapterThree = () => {
   return (
     <div className={styles.content}>
       <DefaultHeader />
-      <ClassButton path='/tracks/adapter/' />
-      <ClassTitle title='Aula 3 - Desafio final, implementação do Adapter' />
+      <ClassButton path='/tracks/singleton/' />
+      <ClassTitle title='Aula 3 - Desafio final, implementação do Singleton' />
       <p className={styles.text}>
-        Agora, temos um desafio final para você! Vamos implementar um novo
-        adapter, da classe FlyingCapybaraCakeCreator. Tente fazer por conta
-        própria com base no que aprendeu até agora. Lembre-se de que o objetivo
-        do Adapter é permitir que classes com interfaces incompatíveis trabalhem
-        juntas. Boa sorte! <b>O Output esperado é: </b>{' '}
-        <span>Fazendo um delicioso bolo de capivara</span>
-        <span>Assando um bolo de capivara voadora</span>
+        Agora, temos um desafio final para você! É sua vez de implementar o
+        Singleton. Boa sorte!{' '}
+        <b>
+          A main já está escrita, basta apenas implementar a lógica do
+          Singleton e corrigir como os objetos são criados da main, sem mudar sua lógica geral.
+        </b>
       </p>
       <CodeRunner
         content={CONTENT_1}
@@ -84,16 +102,15 @@ const AdapterThree = () => {
         handleSuccess={handleComplete}
       />
       <p className={styles.text}>
-        É importante ressaltar que no nosso caso poderíamos ter apenas
-        implementado a interface de bolo nas classes, mas optamos por aplicar o
-        Adapter para que você possa praticar a aplicação desse pattern. Mas é
-        importante sempre pensar se é necessário adicionar na complexidade da
-        sua aplicação e quais são as consequências dessa complexidade extra!{' '}
+        O Singleton é um padrão simples e intuitivo, caso ainda tenha dúvidas
+        não tenha medo de experimentar com ele no seu ambiente de
+        desenvolvimento para entender melhor e tentar pensar em diferentes
+        aplicações do mesmo dentro do contexto de desenvolvimento.{' '}
         <b>Sua curiosidade te levará para as alturas.</b>
       </p>
-      <FinishClassButton path='/tracks/adapter' disabled={!completed} />
+      <FinishClassButton path='/tracks/singleton' disabled={!completed} />
     </div>
   );
 };
 
-export default AdapterThree;
+export default SingletonSix;

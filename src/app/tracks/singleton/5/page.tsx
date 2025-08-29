@@ -6,74 +6,129 @@ import FinishClassButton from '@/components/internal/classes/finishClassButton/p
 import CodeEditor from '@/components/internal/codeEditor/codeEditor';
 import CodeRunner from '@/components/internal/codeRunner/codeRunner';
 
-const CONTENT_1 = `public class CapybaraCakeAdapter implements Bolo {
-    private CapybaraCakeMaker adaptee;
+const CONTENT_1 = `public class BoloDeCapivara {
 
-    public CapybaraCakeAdapter(CapybaraCakeMaker adaptee) {
-        this.adaptee = adaptee;
+    // A única instância (padrão Singleton)
+    private static BoloDeCapivara instancia;
+
+    // Propriedades do bolo
+    private String cobertura;
+    private boolean temChapeu;
+    private boolean temVela;
+
+    // Construtor privado
+    private BoloDeCapivara() {
+        this.cobertura = "chocolate";
+        this.temChapeu = true;
+        this.temVela = false;
     }
 
-    @Override
-    public void prepararBolo() {
-        // Adaptação de método
-        adaptee.makeCapybaraCake();
-    }
-}`;
-
-const CONTENT_2 = `public class Main {
-    public static void main(String[] args) {
-        // Suponha que seu sistema só trabalha com o tipo Bolo
-        Bolo meuBolo = new CapybaraCakeAdapter(new CapybaraCakeMaker());
-        // O cliente chama o método esperado, sem saber da adaptação
-        meuBolo.prepararBolo();
-    }
-}
-
-interface Bolo {
-    void prepararBolo();
-}
-
-class CapybaraCakeMaker {
-    public void makeCapybaraCake() {
-        System.out.println("Fazendo um delicioso bolo de capivara");
-    }
-}
-
-class CapybaraCakeAdapter implements Bolo {
-    private CapybaraCakeMaker adaptee;
-
-    public CapybaraCakeAdapter(CapybaraCakeMaker adaptee) {
-        this.adaptee = adaptee;
+    // Método de acesso público e global
+    public static BoloDeCapivara getInstancia() {
+        if (instancia == null) {
+            instancia = new BoloDeCapivara();
+        }
+        return instancia;
     }
 
-    @Override
-    public void prepararBolo() {
-        // Adaptação de método
-        adaptee.makeCapybaraCake();
+    // Métodos para personalização
+    public void adicionarVela() {
+        if (!temVela) {
+            temVela = true;
+        } else {
+            System.out.println("O bolo já tem uma vela.");
+        }
+    }
+
+    public void mostrarAdornos() {
+        System.out.println("Bolo de Capivara com cobertura de " + cobertura);
+        System.out.println(" - Chapeu: " + (temChapeu ? "Sim" : "Não"));
+        System.out.println(" - Vela: " + (temVela ? "Sim" : "Não"));
     }
 }
 `;
 
-const AdapterThree = () => {
+const CONTENT_2 = `public class Festa {
+    public static void main(String[] args) {
+        // Acessando o mesmo bolo
+        BoloDeCapivara bolo1 = BoloDeCapivara.getInstancia();
+        bolo1.mostrarAdornos();
+
+        // Outra referência -- mesma instância
+        BoloDeCapivara bolo2 = BoloDeCapivara.getInstancia();
+        bolo2.adicionarVela();
+
+        // Mostrar novamente
+        bolo1.mostrarAdornos();
+    }
+}
+
+public class BoloDeCapivara {
+
+    // A única instância (padrão Singleton)
+    private static BoloDeCapivara instancia;
+
+    // Propriedades do bolo
+    private String cobertura;
+    private boolean temChapeu;
+    private boolean temVela;
+
+    // Construtor privado
+    private BoloDeCapivara() {
+        this.cobertura = "chocolate";
+        this.temChapeu = true;
+        this.temVela = false;
+    }
+
+    // Método de acesso público e global
+    public static BoloDeCapivara getInstancia() {
+        if (instancia == null) {
+            instancia = new BoloDeCapivara();
+        }
+        return instancia;
+    }
+
+    // Métodos para personalização
+    public void adicionarVela() {
+        if (!temVela) {
+            temVela = true;
+        } else {
+            System.out.println("O bolo ja tem uma vela.");
+        }
+    }
+
+    public void mostrarAdornos() {
+        System.out.println("Bolo de Capivara com cobertura de " + cobertura);
+        System.out.println(" - Chapeu: " + (temChapeu ? "Sim" : "Nao"));
+        System.out.println(" - Vela: " + (temVela ? "Sim" : "Nao"));
+    }
+}
+`;
+
+const SingletonFive = () => {
   return (
     <div className={styles.content}>
       <DefaultHeader />
-      <ClassButton path='/tracks/adapter/' />
-      <ClassTitle title='Aula 2 - Continuando a implementação do Adapter em código' />
+      <ClassButton path='/tracks/singleton/' />
+      <ClassTitle title='Aula 2 - Continuando a implementação do Singleton em código' />
       <p className={styles.text}>
-        Agora vamos fazer nosso Adapter, ou seja, a classe que faz com que nosso
-        cliente seja capaz de usar a classe a ser adaptada!
+        Agora tendo o código da parte anterior apresentado vamos seguir os
+        padrões do singleton, fazendo com que o <b>construtor seja privado,</b>
+        adicionando uma <b>referência privada</b> para a instância dentro da
+        classe e um método público e estático para obter a referência de
+        qualquer lugar da aplicação, tendo no fim a seguinte classe:
       </p>
       <CodeEditor
         content={CONTENT_1}
-        height='30vh'
+        height='60vh'
         width='30%'
         minimap={false}
         readOnly={true}
       />
-      <p className={styles.text}>
-        Agora quando nossa padaria quiser fazer um bolo de capivara podemos
-        fazer da seguinte forma:{' '}
+      <p className={styles.break}>
+        Nesse caso agora se executarmos o código em seguida iremos sempre obter
+        a mesma instância independente de onde estejamos dentro da nossa
+        aplicação (festa){' '}
         <b>
           PS: Use o código abaixo como referência e o altere conforme desejar
           para explorar sua funcionalidade e satisfazer sua curiosidade
@@ -81,16 +136,13 @@ const AdapterThree = () => {
       </p>
       <CodeRunner content={CONTENT_2} editorHeight={70} />
       <p className={styles.text}>
-        É importante sempre entender quando é necessário introduzir esse nível
-        extra de complexidade no código ou não, no nosso caso em especial não
-        seria necessário! Mas como o problema foi levantado arbitrariamente não
-        é de grande importância, mas assim como resolver problemas complexos é
-        importante, também é importante não deixar problemas simples mais
-        complicados que o necessário.
+        É essencial compreender que o singleton pode ser um padrão de projeto
+        deveras simples, porém extremamente útil em diversas situações e
+        poderoso.
       </p>
-      <FinishClassButton path='/tracks/adapter/quiz' />
+      <FinishClassButton path='/tracks/singleton/' />
     </div>
   );
 };
 
-export default AdapterThree;
+export default SingletonFive;
