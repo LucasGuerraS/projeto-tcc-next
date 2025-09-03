@@ -16,7 +16,7 @@ export type UserData = {
 export const createUser = async (userData: UserData) => {
   try {
     const response = await axios.post(`${API_URL}/student`, userData);
-    return response.data;
+    return response;
   } catch (error) {
     console.error('Error creating user:', error);
     throw error;

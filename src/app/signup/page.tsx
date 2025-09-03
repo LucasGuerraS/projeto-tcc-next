@@ -12,13 +12,29 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
+import { createUser, UserData } from '@/_clients/backend';
 
 const formSchema = z.object({
-  username: z.string().min(2).max(50),
-  email: z.email(),
-  password: z.string().min(8).max(100),
+  username: z
+    .string()
+    .min(2, {
+      error: 'Username precisa ter mais que duas letras',
+    })
+    .max(50, {
+      error: 'Username precisa ter menos que 50 letras',
+    }),
+  email: z.email({ error: 'Email inválido' }),
+  password: z
+    .string()
+    .min(8, {
+      error: 'Senha precisa ter mais que 8 caracteres',
+    })
+    .max(100, {
+      error: 'Senha precisa ter menos que 100 caracteres',
+    }),
 });
 
 const Signup: NextPage = () => {
@@ -31,8 +47,20 @@ const Signup: NextPage = () => {
     },
   });
 
-  const handleSubmit = (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values);
+    const userData: UserData = {
+      name: values.username,
+      email: values.email,
+      password: values.password,
+      experience: 0,
+      progress_a: 0,
+      progress_b: 0,
+      progress_c: 0,
+      certificate: false,
+    };
+    const response = await createUser(userData);
+    console.log(response);
   };
   return (
     <div className={styles.signup}>
@@ -72,6 +100,7 @@ const Signup: NextPage = () => {
                     placeholder='Digite seu nome de usuario'
                   />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -88,6 +117,7 @@ const Signup: NextPage = () => {
                     placeholder='Digite seu email'
                   />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -104,6 +134,7 @@ const Signup: NextPage = () => {
                     placeholder='Digite sua senha'
                   />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
