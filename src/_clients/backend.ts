@@ -13,6 +13,11 @@ export type UserData = {
     certificate: boolean;
 };
 
+export type APIError = {
+  code: string;
+  message: string;
+}
+
 export const createUser = async (userData: UserData) => {
   try {
     const response = await axios.post(`${API_URL}/student`, userData);
@@ -22,3 +27,13 @@ export const createUser = async (userData: UserData) => {
     throw error;
   }
 };
+
+export const login = async (email: string, password: string) => {
+  try {
+    const response = await axios.post(`${API_URL}/student/login`, { email, password });
+    return response;
+  } catch (error) {
+    console.error('Error logging in:', error);
+    throw error;
+  }
+}

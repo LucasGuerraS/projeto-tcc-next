@@ -15,7 +15,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
-import { createUser, UserData } from '@/_clients/backend';
+import { APIError, createUser, UserData } from '@/_clients/backend';
+import { toast } from 'sonner';
 
 const formSchema = z.object({
   username: z
@@ -48,19 +49,40 @@ const Signup: NextPage = () => {
   });
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-    const userData: UserData = {
-      name: values.username,
-      email: values.email,
-      password: values.password,
-      experience: 0,
-      progress_a: 0,
-      progress_b: 0,
-      progress_c: 0,
-      certificate: false,
-    };
-    const response = await createUser(userData);
-    console.log(response);
+    try {
+      const userData: UserData = {
+        name: values.username,
+        email: values.email,
+        password: values.password,
+        experience: 0,
+        progress_a: 0,
+        progress_b: 0,
+        progress_c: 0,
+        certificate: false,
+      };
+      const response = await createUser(userData);
+      if (response.status === 201) {
+        toast.success('Conta criada com sucesso!');
+        window.location.href = '/profile';
+      }
+    } catch (error) {
+      toast.error('Erro ao criar conta', {
+        description: `Email já registrado ou senha inválida, ${
+          (error as APIError).message
+        }`,
+      });
+      form.setError(
+        'username',
+        { message: 'Email já registrado ou senha inválida' },
+        { shouldFocus: true }
+      );
+      form.setError('email', {
+        message: 'Email já registrado ou senha inválida',
+      });
+      form.setError('password', {
+        message: 'Email já registrado ou senha inválida',
+      });
+    }
   };
   return (
     <div className={styles.signup}>
