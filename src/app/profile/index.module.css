@@ -1,0 +1,137 @@
+/* general styles */
+.profile {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  	height: 100vh;
+  	font-size: 14px;
+  	color: #000;
+  	font-family: Inter;
+}
+/* header styles */
+.items {
+  	position: relative;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+	justify-content: flex-end;
+	gap: 20px;
+}
+
+.designpatternsfactory {
+  	position: relative;
+  	font-weight: 500;
+}
+
+.navigation {
+	width: 90%;
+  	position: relative;
+  	height: 164px;
+	margin-top: 30px;
+  	font-size: 20px;
+}
+
+.divider {
+	flex: 1;
+}
+
+.home {
+  	position: relative;
+  	line-height: 150%;
+  	font-weight: 500;
+  	cursor: pointer;
+}
+/* body styles */
+.body{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 100%;
+	margin-top: 30px;
+	gap: 10%;
+}
+
+/* left */
+/* level combo */
+.left{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.comboLevel{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+}
+
+.label {
+	font-size: 24px;
+	font-weight: 500;
+	color: #000;
+}
+
+.profileInfo{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
+}
+
+.profileBody{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.cardTitle{
+	font-size: 20px;
+	font-weight: 500;
+	color: #000;
+}
+
+.cardInfos{
+	font-size: 16px;
+	font-weight: 400;
+	color: #666;
+}
+
+.cardPic{
+	border-radius: 300px;
+	object-fit: cover;
+	width: 300px;
+	height: 300px;
+}
+
+.progressBar{
+	height: 15px;
+}
+
+/*  direita */
+.right{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	text-align: center;
+	width: 20%;
+}
+
+.rightTitle{
+	font-size: 32px;
+	font-weight: 500;
+	color: #000;
+	margin-bottom: 20px;
+}
+
+.rightBar{
+	height: 15px;
+}
+
+.rightButton{
+	margin-top: 20px;
+}
