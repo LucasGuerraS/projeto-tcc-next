@@ -45,7 +45,7 @@ const IntroThree = () => {
         fixos, então os benefícios advindos da aplicação desses padrões pode ser
         imenso.
       </p>
-      <Image src='/adapter.drawio.png' alt='foo' width={500} height={500} />
+      <Image src='/PADROES.png' alt='projeto escalando bem usando design patterns' width={250} height={100} className='rotate-270'/>
       <p className={styles.text}>
         Por fim é importante reconhecer esses benefícios e tentar encontrar
         soluções para outros problemas que tragam benefícios igualmente bons em

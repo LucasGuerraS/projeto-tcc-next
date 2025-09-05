@@ -26,9 +26,9 @@ const IntroOne = () => {
         contexto presente.
       </p>
       <Image
-        src='https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/oficinadosbits/media/uploads/produtos/foto/zurojqnv/file.png'
-        alt='foo'
-        width={250}
+        src='/JAVINHA.png'
+        alt='javinha estudando'
+        width={200}
         height={100}
       />
       <p className={styles.text}>
@@ -38,8 +38,8 @@ const IntroOne = () => {
         diversas outras práticas de desenvolvimento, não é tido como objetivo
         ensinar por detalhes todos os padrões de projetos existentes um por um,
         e sim trazer à tona as características de um padrão de projeto, seus
-        benefícios, e como entender quando um pode ser necessário. <b> Sua
-        curiosidade te levará para as alturas.</b>
+        benefícios, e como entender quando um pode ser necessário.{' '}
+        <b> Sua curiosidade te levará para as alturas.</b>
       </p>
       <p className={styles.text}>
         Para começar, a pergunta deve ser feita, o que são padrões de projeto?
@@ -50,10 +50,10 @@ const IntroOne = () => {
         simples formato de bolo.
       </p>
       <Image
-        src='https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/oficinadosbits/media/uploads/produtos/foto/zurojqnv/file.png'
-        alt='foo'
-        width={250}
-        height={100}
+        src='/CAPI.png'
+        alt='bolo de capivara sendo cortado'
+        width={150}
+        height={75}
       />
       <p className={styles.text}>
         Podemos, continuando na linha do bolo, colocar um bolo em formato de

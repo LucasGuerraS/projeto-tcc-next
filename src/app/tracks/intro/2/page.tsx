@@ -21,10 +21,10 @@ const IntroTwo = () => {
           sendo assim elas não podem existir no mesmo contexto.
         </p>
         <Image
-          src='https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/oficinadosbits/media/uploads/produtos/foto/zurojqnv/file.png'
-          alt='foo'
-          width={250}
-          height={100}
+          src='/PILARES_DGD.png'
+          alt='casa de pilares representando os princípios'
+          width={200}
+          height={75}
         />
         <ol className={styles.listOl}>
           <li>
