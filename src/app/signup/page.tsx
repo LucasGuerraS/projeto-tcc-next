@@ -63,7 +63,7 @@ const Signup: NextPage = () => {
       const response = await createUser(userData);
       if (response.status === 201) {
         toast.success('Conta criada com sucesso!');
-        window.location.href = '/profile';
+        window.location.href = '/login';
       }
     } catch (error) {
       toast.error('Erro ao criar conta', {

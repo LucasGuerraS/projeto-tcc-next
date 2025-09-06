@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
-import { APIError, login } from '@/_clients/backend';
+import { APIError } from '@/_clients/backend';
 import { toast } from 'sonner';
 
 const formSchema = z.object({
@@ -41,9 +41,15 @@ const Login: NextPage = () => {
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const response = await login(values.email, values.password);
-      console.log(response);
-      if (response.data === false) {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: values.email, password: values.password }),
+      });
+      const data = await response.json();
+      if (!data) {
         toast.error('Erro ao entrar com conta', {
           description: 'Email ou senha inválidos',
         });
@@ -54,7 +60,7 @@ const Login: NextPage = () => {
         );
         form.setError('password', { message: 'Email ou senha inválidos' });
       }
-      else if (response.status === 200 && response.data === true) {
+      else if (response.status === 200 && data) {
         toast.success('Login realizado com sucesso!');
         window.location.href = '/profile'
       }
