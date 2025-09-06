@@ -3,20 +3,20 @@ import axios from 'axios';
 const API_URL = 'http://localhost:8080';
 
 export type UserData = {
-    name: string;
-    email: string;
-    password: string;
-    experience: number;
-    progress_a: number;
-    progress_b: number;
-    progress_c: number;
-    certificate: boolean;
+  name: string;
+  email: string;
+  password: string;
+  experience: number;
+  progress_a: number;
+  progress_b: number;
+  progress_c: number;
+  certificate: boolean;
 };
 
 export type APIError = {
   code: string;
   message: string;
-}
+};
 
 export const createUser = async (userData: UserData) => {
   try {
@@ -30,10 +30,23 @@ export const createUser = async (userData: UserData) => {
 
 export const login = async (email: string, password: string) => {
   try {
-    const response = await axios.post(`${API_URL}/student/login`, { email, password });
+    const response = await axios.post(`${API_URL}/student/login`, {
+      email,
+      password,
+    });
     return response;
   } catch (error) {
     console.error('Error logging in:', error);
     throw error;
   }
-}
+};
+
+export const getUserById = async (id: string) => {
+  try {
+    const response = await axios.get(`${API_URL}/student/${id}`);
+    return response;
+  } catch (error) {
+    console.error('Error fetching user by ID:', error);
+    throw error;
+  }
+};
