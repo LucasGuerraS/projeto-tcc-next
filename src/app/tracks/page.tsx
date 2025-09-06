@@ -4,14 +4,27 @@ import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import TracksImage from '@/components/internal/trackImage/trackImage';
 import DefaultHeader from '@/components/internal/defaultHeader/defaultHeader';
+import { validateSession } from '@/_utils/validateSession';
+import { redirect, RedirectType } from 'next/navigation';
 
-const AllTracks: NextPage = () => {
+const AllTracks: NextPage = async () => {
+  const userData = await validateSession();
+  if (!userData) {
+    redirect('/', RedirectType.replace);
+  }
   return (
     <div className={styles.content}>
       <DefaultHeader />
       <div className={styles.generalTitle}>
         <h1>Progressão Geral</h1>
-        <Progress className={styles.progressBar} value={37} />
+        <Progress
+          className={styles.progressBar}
+          value={
+            ((userData.progress_a + userData.progress_b + userData.progress_c) *
+              16.66) /
+            3
+          }
+        />
       </div>
       <div className={styles.generalBody}>
         <div className={styles.introTrack}>
