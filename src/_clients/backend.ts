@@ -1,3 +1,4 @@
+import { getSession } from '@/_utils/session';
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8080';
@@ -10,6 +11,7 @@ export type UserData = {
   progress_a: number;
   progress_b: number;
   progress_c: number;
+  progress_d: number;
   certificate: boolean;
 };
 
@@ -47,6 +49,22 @@ export const getUserById = async (id: string) => {
     return response;
   } catch (error) {
     console.error('Error fetching user by ID:', error);
+    throw error;
+  }
+};
+
+export const updateClassProgress = async (classId: string) => {
+  try {
+    const session = await getSession();
+    if (!session) {
+      throw new Error('No active session');
+    }
+    const response = await axios.post(`${API_URL}/student/class/${classId}`, {
+      id: session.value,
+    });
+    return response;
+  } catch (error) {
+    console.error('Error updating class progress:', error);
     throw error;
   }
 };

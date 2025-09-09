@@ -5,13 +5,9 @@ import { Separator } from '@/components/ui/separator';
 import TracksImage from '@/components/internal/trackImage/trackImage';
 import DefaultHeader from '@/components/internal/defaultHeader/defaultHeader';
 import { validateSession } from '@/_utils/validateSession';
-import { redirect, RedirectType } from 'next/navigation';
 
 const AllTracks: NextPage = async () => {
   const userData = await validateSession();
-  if (!userData) {
-    redirect('/', RedirectType.replace);
-  }
   return (
     <div className={styles.content}>
       <DefaultHeader />

@@ -11,19 +11,18 @@ export type UserResponse = {
   progress_a: number;
   progress_b: number;
   progress_c: number;
+  progress_d: number;
   certificate: boolean;
 };
 
-export const GET = async (): Promise<
-  NextResponse<UserResponse | { message: string }>
-> => {
+export const GET = async (): Promise<NextResponse<UserResponse | unknown>> => {
   const session = await getSession();
   if (!session) {
-    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+    return NextResponse.json('', { status: 302 });
   }
   const user = (await getUserById(session.value)).data as UserResponse;
   if (!user) {
-    return NextResponse.json({ message: 'User not found' }, { status: 404 });
+    return NextResponse.json('', { status: 302 });
   }
   return NextResponse.json(user, { status: 200 });
 };

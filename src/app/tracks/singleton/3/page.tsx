@@ -4,8 +4,10 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import Image from 'next/image';
+import { validateSession } from '@/_utils/validateSession';
 
-const SingletonThree = () => {
+const SingletonThree = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -29,7 +31,7 @@ const SingletonThree = () => {
         vai ter um construtor privado e um método estático que retorna a
         instância, simples né?
       </p>
-      <FinishClassButton path='/tracks/singleton/quiz' />
+      <FinishClassButton path='/tracks/singleton/quiz' trackId={2} number={3} />
     </div>
   );
 };

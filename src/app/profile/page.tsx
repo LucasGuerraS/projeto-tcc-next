@@ -9,13 +9,9 @@ import { AvatarFallback } from '@/components/ui/avatar';
 import Link from 'next/link';
 import GenericNavButton from '@/components/internal/genericNavButton/GenericNavButton';
 import { validateSession } from '@/_utils/validateSession';
-import { redirect, RedirectType } from 'next/navigation';
 
 const Profile: NextPage = async () => {
   const userData = await validateSession();
-  if (!userData) {
-    redirect('/', RedirectType.replace);
-  }
   return (
     <div className={styles.profile}>
       <header className={styles.navigation}>

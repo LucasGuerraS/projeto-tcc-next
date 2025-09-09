@@ -5,6 +5,7 @@ import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeEditor from '@/components/internal/codeEditor/codeEditor';
 import CodeRunner from '@/components/internal/codeRunner/codeRunner';
+import { validateSession } from '@/_utils/validateSession';
 
 const CONTENT_1 = `public abstract class CakeFactory {
     public abstract Cake createCake();
@@ -86,7 +87,8 @@ public interface Cake {
 }
 `;
 
-const FactoryFive = () => {
+const FactoryFive = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -138,7 +140,7 @@ const FactoryFive = () => {
         nosso programa mais limpo, fácil de se entender e extender, como nosso
         exemplo é simples os benefícios não serão muito grandes também.
       </p>
-      <FinishClassButton path='/tracks/factory/' />
+      <FinishClassButton path='/tracks/factory/' trackId={1} number={5} />
     </div>
   );
 };

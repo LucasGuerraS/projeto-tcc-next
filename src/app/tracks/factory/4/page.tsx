@@ -4,6 +4,7 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeEditor from '@/components/internal/codeEditor/codeEditor';
+import { validateSession } from '@/_utils/validateSession';
 
 const CONTENT_1 = `public interface Cake {
     void decorar();
@@ -23,7 +24,8 @@ public class CapybaraCake implements Cake {
     }
 }`;
 
-const FactoryFour = () => {
+const FactoryFour = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -58,7 +60,7 @@ const FactoryFour = () => {
         definimos os métodos base e propriedades necessárias do objeto como
         qualquer outra classe.
       </p>
-      <FinishClassButton path='/tracks/factory/' />
+      <FinishClassButton path='/tracks/factory/' trackId={1} number={4}/>
     </div>
   );
 };

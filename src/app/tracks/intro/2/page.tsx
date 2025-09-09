@@ -4,8 +4,10 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import Image from 'next/image';
+import { validateSession } from '@/_utils/validateSession';
 
-const IntroTwo = () => {
+const IntroTwo = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -72,7 +74,7 @@ const IntroTwo = () => {
           </li>
         </ul>
       </div>
-      <FinishClassButton path='/tracks/intro/' />
+      <FinishClassButton path='/tracks/intro/' trackId={4} number={2} />
     </div>
   );
 };

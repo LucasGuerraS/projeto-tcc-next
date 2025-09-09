@@ -15,8 +15,24 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
-import { APIError, createUser, UserData } from '@/_clients/backend';
 import { toast } from 'sonner';
+
+type APIError = {
+  code: string;
+  message: string;
+};
+
+type UserData = {
+  name: string;
+  email: string;
+  password: string;
+  experience: number;
+  progress_a: number;
+  progress_b: number;
+  progress_c: number;
+  progress_d: number;
+  certificate: boolean;
+};
 
 const formSchema = z.object({
   username: z
@@ -58,9 +74,16 @@ const Signup: NextPage = () => {
         progress_a: 0,
         progress_b: 0,
         progress_c: 0,
+        progress_d: 0,
         certificate: false,
       };
-      const response = await createUser(userData);
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
       if (response.status === 201) {
         toast.success('Conta criada com sucesso!');
         window.location.href = '/login';

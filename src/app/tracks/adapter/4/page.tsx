@@ -4,6 +4,7 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeEditor from '@/components/internal/codeEditor/codeEditor';
+import { validateSession } from '@/_utils/validateSession';
 
 const CONTENT_1 = `public interface Bolo {
     void prepararBolo();
@@ -15,7 +16,8 @@ const CONTENT_2 = `public class CapybaraCakeMaker {
     }
 }`;
 
-const AdapterFour = () => {
+const AdapterFour = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -54,7 +56,7 @@ const AdapterFour = () => {
         mas em casos como esse é importante ponderar essa necessidade de
         retrabalho.
       </p>
-      <FinishClassButton path='/tracks/adapter/' />
+      <FinishClassButton path='/tracks/adapter/' trackId={3} number={4} />
     </div>
   );
 };

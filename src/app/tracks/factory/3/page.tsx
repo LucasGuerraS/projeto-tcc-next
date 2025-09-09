@@ -4,8 +4,10 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import Image from 'next/image';
+import { validateSession } from '@/_utils/validateSession';
 
-const FactoryThree = () => {
+const FactoryThree = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -35,7 +37,7 @@ const FactoryThree = () => {
         quem deve ser usado sempre a classe concreta de criação de objeto sempre
         usando a interface como base.
       </p>
-      <FinishClassButton path='/tracks/factory/quiz' />
+      <FinishClassButton path='/tracks/factory/quiz' trackId={1} number={3}/>
     </div>
   );
 };

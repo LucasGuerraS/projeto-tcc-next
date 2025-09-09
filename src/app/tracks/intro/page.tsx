@@ -1,8 +1,10 @@
 import DefaultHeader from '@/components/internal/defaultHeader/defaultHeader';
 import styles from './index.module.css';
 import TrackClassBox from '@/components/internal/trackClassBox/trackClassBox';
+import { validateSession } from '@/_utils/validateSession';
 
-const AdapterTrack = () => {
+const AdapterTrack = async () => {
+  const userData = await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -14,7 +16,7 @@ const AdapterTrack = () => {
           'Conhecendo os Patterns',
           'Entendendo os Objetivos dos Patterns',
         ]}
-        progress={2}
+        progress={userData.progress_d}
         track='/tracks/intro'
         numbers={[1, 2, 3]}
       />

@@ -5,6 +5,7 @@ import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeEditor from '@/components/internal/codeEditor/codeEditor';
 import CodeRunner from '@/components/internal/codeRunner/codeRunner';
+import { validateSession } from '@/_utils/validateSession';
 
 const CONTENT_1 = `public class CapybaraCakeAdapter implements Bolo {
     private CapybaraCakeMaker adaptee;
@@ -54,7 +55,8 @@ class CapybaraCakeAdapter implements Bolo {
 }
 `;
 
-const AdapterFive = () => {
+const AdapterFive = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -88,7 +90,7 @@ const AdapterFive = () => {
         importante, também é importante não deixar problemas simples mais
         complicados que o necessário.
       </p>
-      <FinishClassButton path='/tracks/adapter/' />
+      <FinishClassButton path='/tracks/adapter/' trackId={3} number={5} />
     </div>
   );
 };

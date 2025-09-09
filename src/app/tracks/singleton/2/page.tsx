@@ -3,8 +3,10 @@ import styles from './index.module.css';
 import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
+import { validateSession } from '@/_utils/validateSession';
 
-const SingletonTwo = () => {
+const SingletonTwo = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -42,7 +44,7 @@ const SingletonTwo = () => {
           ruim de design de Software.
         </p>
       </div>
-      <FinishClassButton path='/tracks/adapter/' />
+      <FinishClassButton path='/tracks/singleton/' trackId={2} number={2} />
     </div>
   );
 };

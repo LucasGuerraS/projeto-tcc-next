@@ -15,8 +15,12 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
-import { APIError } from '@/_clients/backend';
 import { toast } from 'sonner';
+
+type APIError = {
+  code: string;
+  message: string;
+};
 
 const formSchema = z.object({
   email: z.email({ error: 'Email inválido' }),

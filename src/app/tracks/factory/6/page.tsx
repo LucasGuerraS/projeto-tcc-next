@@ -7,6 +7,7 @@ import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeRunner from '@/components/internal/codeRunner/codeRunner';
 import { useState } from 'react';
+import { redirect } from 'next/navigation';
 
 const CONTENT_1 = `import java.util.*;
 
@@ -73,6 +74,14 @@ class GeradorDeVampiros extends FabricaDeEntidades {}
 const EXPECTED = ['Jogador', 'Orc', 'Vampiro'];
 
 const FactorySix = () => {
+  fetch('/api/validateSession', { method: 'GET', credentials: 'include' }).then(
+      async (res) => {
+        if (res.status === 302) {
+          redirect('/');
+        }
+      }
+  );
+  
   const [completed, setCompleted] = useState<boolean>(false);
 
   const handleComplete = (code: string) => {
@@ -83,6 +92,7 @@ const FactorySix = () => {
       setCompleted(true);
     }
   };
+
 
   return (
     <div className={styles.content}>
@@ -110,7 +120,7 @@ const FactorySix = () => {
         carreira como ferramentas de trabalho.{' '}
         <b>Sua curiosidade te levará para as alturas.</b>
       </p>
-      <FinishClassButton path='/tracks/factory' disabled={!completed} />
+      <FinishClassButton path='/tracks/factory' disabled={!completed} trackId={1} number={6} />
     </div>
   );
 };

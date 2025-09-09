@@ -7,6 +7,7 @@ import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeRunner from '@/components/internal/codeRunner/codeRunner';
 import { useState } from 'react';
+import { redirect } from 'next/navigation';
 
 const CONTENT_1 = `// ---------- Classe Principal ----------
 public class Festa {
@@ -75,6 +76,14 @@ const EXPECTED =
   'Bem-vindo a Festa!\nAgora tocando: Capivara Funk\nStatus do Som:\n - Volume: 5\n - Musica atual: Capivara Funk\nVolume aumentado para 6\nStatus do Som:\n - Volume: 6\n - Musica atual: Capivara Funk\nVolume diminuido para 5\nStatus do Som:\n - Volume: 5\n - Musica atual: Capivara Funk\n';
 
 const SingletonSix = () => {
+  fetch('/api/validateSession', { method: 'GET', credentials: 'include' }).then(
+      async (res) => {
+        if (res.status === 302) {
+          redirect('/');
+        }
+      }
+  );
+  
   const [completed, setCompleted] = useState<boolean>(false);
 
   const handleComplete = (code: string) => {
@@ -108,7 +117,7 @@ const SingletonSix = () => {
         aplicações do mesmo dentro do contexto de desenvolvimento.{' '}
         <b>Sua curiosidade te levará para as alturas.</b>
       </p>
-      <FinishClassButton path='/tracks/singleton' disabled={!completed} />
+      <FinishClassButton path='/tracks/singleton' disabled={!completed} trackId={2} number={6} />
     </div>
   );
 };
