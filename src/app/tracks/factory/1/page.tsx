@@ -4,8 +4,10 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import Image from 'next/image';
+import { validateSession } from '@/_utils/validateSession';
 
-const FactoryOne = () => {
+const FactoryOne = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -30,7 +32,7 @@ const FactoryOne = () => {
         que precisamos fazer uma aplicação de uma padaria conhecida por seus
         bolos de formas diferentes.
       </p>
-      <FinishClassButton path='/tracks/factory/' />
+      <FinishClassButton path='/tracks/factory/' trackId={1} number={1}/>
     </div>
   );
 };

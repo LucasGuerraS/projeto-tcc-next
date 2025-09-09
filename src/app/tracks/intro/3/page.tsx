@@ -4,8 +4,10 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import Image from 'next/image';
+import { validateSession } from '@/_utils/validateSession';
 
-const IntroThree = () => {
+const IntroThree = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -45,7 +47,13 @@ const IntroThree = () => {
         fixos, então os benefícios advindos da aplicação desses padrões pode ser
         imenso.
       </p>
-      <Image src='/adapter.drawio.png' alt='foo' width={500} height={500} />
+      <Image
+        src='/PADROES.png'
+        alt='projeto escalando bem usando design patterns'
+        width={250}
+        height={100}
+        className='rotate-270'
+      />
       <p className={styles.text}>
         Por fim é importante reconhecer esses benefícios e tentar encontrar
         soluções para outros problemas que tragam benefícios igualmente bons em
@@ -56,7 +64,7 @@ const IntroThree = () => {
         desenvolvimento mais leves e sustentáveis.{' '}
         <b>Sua curiosidade te levará para as alturas.</b>
       </p>
-      <FinishClassButton path='/tracks' />
+      <FinishClassButton path='/tracks' trackId={4} number={3}/>
     </div>
   );
 };

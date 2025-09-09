@@ -1,8 +1,10 @@
 import QuizForm from '@/components/internal/quiz/quizForm/quizForm';
 import styles from './index.module.css';
 import DefaultHeader from '@/components/internal/defaultHeader/defaultHeader';
+import { validateSession } from '@/_utils/validateSession';
 
-const QuizPageAdapter = () => {
+const QuizPageAdapter = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />

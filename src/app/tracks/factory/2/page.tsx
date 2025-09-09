@@ -3,8 +3,10 @@ import styles from './index.module.css';
 import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
+import { validateSession } from '@/_utils/validateSession';
 
-const FactoryTwo = () => {
+const FactoryTwo = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -49,7 +51,7 @@ const FactoryTwo = () => {
           pattern.
         </p>
       </div>
-      <FinishClassButton path='/tracks/factory/' />
+      <FinishClassButton path='/tracks/factory/' trackId={1} number={2}/>
     </div>
   );
 };

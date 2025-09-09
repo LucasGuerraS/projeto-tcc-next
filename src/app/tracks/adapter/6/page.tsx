@@ -7,6 +7,7 @@ import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeRunner from '@/components/internal/codeRunner/codeRunner';
 import { useState } from 'react';
+import { redirect } from 'next/navigation';
 
 const CONTENT_1 = `public class Main {
     public static void main(String[] args) {
@@ -56,6 +57,14 @@ const EXPECTED =
   'Fazendo um delicioso bolo de capivara\nAssando um bolo de capivara voadora\n';
 
 const AdapterSix = () => {
+  fetch('/api/validateSession', { method: 'GET', credentials: 'include' }).then(
+    async (res) => {
+      if (res.status === 302) {
+        redirect('/');
+      }
+    }
+  );
+
   const [completed, setCompleted] = useState<boolean>(false);
 
   const handleComplete = (code: string) => {
@@ -91,7 +100,12 @@ const AdapterSix = () => {
         sua aplicação e quais são as consequências dessa complexidade extra!{' '}
         <b>Sua curiosidade te levará para as alturas.</b>
       </p>
-      <FinishClassButton path='/tracks/adapter' disabled={!completed} />
+      <FinishClassButton
+        path='/tracks/adapter'
+        disabled={!completed}
+        trackId={3}
+        number={6}
+      />
     </div>
   );
 };

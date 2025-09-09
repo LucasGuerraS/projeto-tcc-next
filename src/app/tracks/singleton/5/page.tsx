@@ -5,6 +5,7 @@ import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import CodeEditor from '@/components/internal/codeEditor/codeEditor';
 import CodeRunner from '@/components/internal/codeRunner/codeRunner';
+import { validateSession } from '@/_utils/validateSession';
 
 const CONTENT_1 = `public class BoloDeCapivara {
 
@@ -105,7 +106,8 @@ public class BoloDeCapivara {
 }
 `;
 
-const SingletonFive = () => {
+const SingletonFive = async () => {
+    await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -140,7 +142,7 @@ const SingletonFive = () => {
         deveras simples, porém extremamente útil em diversas situações e
         poderoso.
       </p>
-      <FinishClassButton path='/tracks/singleton/' />
+      <FinishClassButton path='/tracks/singleton/' trackId={2} number={5} />
     </div>
   );
 };

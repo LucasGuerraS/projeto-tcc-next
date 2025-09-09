@@ -4,8 +4,10 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import Image from 'next/image';
+import { validateSession } from '@/_utils/validateSession';
 
-const AdapterThree = () => {
+const AdapterThree = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -30,7 +32,7 @@ const AdapterThree = () => {
         seu construtor e chama o método esperado do serviço, com base no que o
         cliente espera.
       </p>
-      <FinishClassButton path='/tracks/adapter/quiz' />
+      <FinishClassButton path='/tracks/adapter/quiz' trackId={3} number={3} />
     </div>
   );
 };

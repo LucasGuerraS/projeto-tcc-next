@@ -4,8 +4,10 @@ import ClassTitle from '@/components/internal/classes/classTitle/page';
 import ClassButton from '@/components/internal/classes/backClassButton/page';
 import FinishClassButton from '@/components/internal/classes/finishClassButton/page';
 import Image from 'next/image';
+import { validateSession } from '@/_utils/validateSession';
 
-const AdapterOne = () => {
+const AdapterOne = async () => {
+  await validateSession();
   return (
     <div className={styles.content}>
       <DefaultHeader />
@@ -34,7 +36,7 @@ const AdapterOne = () => {
         simples e efetivo do que parece! Quase como um adaptador de tomada, mas
         com uma pitada de código!
       </p>
-      <FinishClassButton path='/tracks/adapter/' />
+      <FinishClassButton path='/tracks/adapter/' trackId={3} number={1} />
     </div>
   );
 };

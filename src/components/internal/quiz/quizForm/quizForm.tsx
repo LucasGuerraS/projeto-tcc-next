@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { toast } from 'sonner';
 
 type QuizFormProps = {
   questionTitle: string;
@@ -43,7 +44,7 @@ const QuizForm = ({
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
     if (data.type === correctAnswer) {
-      alert('Resposta correta!');
+      toast.success('Resposta correta!');
       window.location.href = path;
     } else {
       setErrorMsg('Resposta incorreta. Tente novamente!');
