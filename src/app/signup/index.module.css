@@ -1,0 +1,120 @@
+.home {
+  position: relative;
+  line-height: 150%;
+  font-weight: 500;
+}
+.items {
+  position: absolute;
+  top: 56px;
+  right: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.designpatternsfactory {
+  position: absolute;
+  top: 67px;
+  left: 80px;
+  line-height: 150%;
+  font-weight: 500;
+}
+.navigation {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: #fff;
+  height: 164px;
+  overflow: hidden;
+}
+.nomeDeUsurio {
+  align-self: stretch;
+  position: relative;
+  line-height: 150%;
+  font-weight: 500;
+}
+.field2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.input2 {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.form {
+  position: relative;
+  width: 43.23%;
+  top: 30%;
+  right: 10.38%;
+  left: 4.38%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 14px;
+  font-size: 16px;
+}
+.criar {
+  width: 55px;
+  position: relative;
+  line-height: 150%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  flex-shrink: 0;
+}
+.button {
+  margin-top: 40px;
+  position: relative;
+  width: 75%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+}
+.crieSuaConta {
+  position: relative;
+  line-height: 150%;
+  font-weight: 600;
+  font-family: monospace;
+  text-decoration: underline;
+}
+.heading {
+  position: relative;
+  width: 624px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 32px;
+}
+.signup {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  text-align: left;
+  font-size: 20px;
+  color: #000;
+  font-family: Inter;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,104 @@
+/* Body styles */ 
+.content {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  	height: 100vh;
+  	font-size: 14px;
+  	color: #000;
+  	font-family: Inter;
+}
+/* Header styles */
+.items {
+  	position: relative;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+	justify-content: flex-end;
+	gap: 20px;
+}
+
+.designpatternsfactory {
+  	position: relative;
+  	font-weight: 500;
+}
+
+.navigation {
+	width: 90%;
+  	position: relative;
+  	height: 164px;
+	margin-top: 30px;
+  	font-size: 20px;
+}
+
+.divider {
+	flex: 1;
+}
+
+.home {
+  	position: relative;
+  	line-height: 150%;
+  	font-weight: 500;
+  	cursor: pointer;
+}
+
+/* body styles */
+.generalBody{
+	width: 95%;
+}
+
+.generalTitle {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	font-size: 32px;
+	font-weight: 500;
+	margin-top: 5%;
+	gap: 25px;
+	width: 30%;
+}
+
+.progressBar{
+	height: 1.5rem;
+	width: 100%;
+}
+
+.introTrack{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 40px;
+	margin-top: 7rem;
+	
+}
+
+.introTitle{
+	font-size: 3rem;
+	width: 25%;
+}
+
+.separatorStyle{
+	width: 25%;
+	height: 2px;
+	background-color: #000;
+}
+
+.allTracks{
+	font-size: 2.5rem;
+	margin-top: 4rem;
+	margin-left: 7rem;
+}
+
+.tracksContainer{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-bottom: 100px;
+	margin-top: 2rem;
+}

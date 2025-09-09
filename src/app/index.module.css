@@ -1,0 +1,316 @@
+.topic {
+  	align-self: stretch;
+  	position: relative;
+  	line-height: 150%;
+  	font-weight: 500;
+  	color: #000;
+}
+.page {
+  	align-self: stretch;
+  	position: relative;
+  	line-height: 150%;
+  	font-weight: 500;
+}
+.items {
+  	position: absolute;
+  	top: 48px;
+  	right: 549px;
+  	width: 187px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	justify-content: center;
+  	gap: 24px;
+}
+.items1 {
+  	position: absolute;
+  	top: 48px;
+  	right: 314px;
+  	width: 187px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	justify-content: center;
+  	gap: 24px;
+}
+.items2 {
+  	position: absolute;
+  	top: 48px;
+  	right: 80px;
+  	width: 187px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	justify-content: center;
+  	gap: 24px;
+}
+.siteName {
+  	position: absolute;
+  	top: 52px;
+  	left: 80px;
+  	font-size: 24px;
+  	line-height: 150%;
+  	color: #000;
+}
+.buttonsIcon {
+  	width: 40px;
+  	position: relative;
+  	border-radius: 4px;
+  	height: 40px;
+  	object-fit: cover;
+}
+.socialIcons {
+  	position: absolute;
+  	top: 176px;
+  	left: 80px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 8px;
+}
+.divider {
+  	position: absolute;
+  	top: 0.5px;
+  	left: 79.5px;
+  	border-top: 1px solid #e6e6e6;
+  	box-sizing: border-box;
+  	width: 1281px;
+  	height: 1px;
+}
+.navigationFooter {
+  	position: absolute;
+  	width: 100%;
+  	right: 0px;
+  	bottom: 0px;
+  	left: 0px;
+  	background-color: #fff;
+  	height: 264px;
+  	overflow: hidden;
+  	font-size: 16px;
+  	color: #454545;
+}
+.home {
+  	position: relative;
+  	line-height: 150%;
+  	font-weight: 500;
+}
+.button {
+  	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  	border-radius: 8px;
+  	background-color: #000;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 14px 24px;
+  	cursor: pointer;
+  	font-size: 16px;
+  	color: #fff;
+}
+.items3 {
+  	position: absolute;
+  	top: 56px;
+  	right: 80px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-end;
+  	gap: 48px;
+}
+.designpatternsfactory {
+  	position: absolute;
+  	top: 67px;
+  	left: 80px;
+  	line-height: 150%;
+  	font-weight: 500;
+}
+.navigation {
+  	position: absolute;
+  	width: 100%;
+  	top: 0px;
+  	right: 0px;
+  	left: 0px;
+  	background-color: #fff;
+  	height: 164px;
+  	overflow: hidden;
+  	font-size: 20px;
+}
+.oQueVoc {
+  	position: absolute;
+  	top: 842px;
+  	left: calc(50% - 665px);
+  	letter-spacing: -0.02em;
+  	font-weight: 600;
+  	display: inline-block;
+  	width: 624px;
+}
+.dentroDoSeu {
+  	align-self: stretch;
+  	position: relative;
+  	line-height: 150%;
+  	color: #828282;
+}
+.copy {
+  	width: 381px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: center;
+  	gap: 4px;
+}
+.copy1 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 381px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: center;
+  	gap: 4px;
+}
+.card {
+  	flex: 1;
+  	position: relative;
+  	height: 148px;
+}
+.aulasInterativas {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 150%;
+  	font-weight: 500;
+  	display: inline-block;
+  	width: 381px;
+}
+.nossasTrilhasSo {
+  	position: absolute;
+  	top: 40px;
+  	left: 0px;
+  	line-height: 150%;
+  	color: #828282;
+  	display: flex;
+  	align-items: center;
+  	width: 381px;
+}
+.copy2 {
+  	width: 381px;
+  	position: relative;
+  	height: 184px;
+}
+.copyParent {
+  	position: absolute;
+  	top: 984px;
+  	left: 129px;
+  	width: 1279px;
+  	height: 310px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 32px;
+  	font-size: 24px;
+}
+.qualOObjetivo {
+  	position: absolute;
+  	top: 1482px;
+  	left: 327px;
+  	letter-spacing: -0.02em;
+  	font-weight: 600;
+  	display: inline-block;
+  	width: 676px;
+  	height: 124px;
+}
+.ensinoDeFcil {
+  	width: 515px;
+  	position: relative;
+  	line-height: 150%;
+  	font-weight: 500;
+  	display: inline-block;
+}
+.oContedo {
+  	width: 515px;
+  	position: relative;
+  	line-height: 150%;
+  	color: #828282;
+  	display: flex;
+  	align-items: center;
+}
+.text1 {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: center;
+  	gap: 8px;
+}
+.text {
+  	position: absolute;
+  	top: 1648px;
+  	left: 319px;
+  	width: 515px;
+  	height: 415px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	justify-content: flex-start;
+  	gap: 44px;
+  	font-size: 24px;
+}
+.simplificandoPadresDe {
+  	align-self: stretch;
+  	position: relative;
+  	letter-spacing: -0.02em;
+}
+.aprendaEAplique {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 24px;
+  	line-height: 150%;
+  	color: rgba(0, 0, 0, 0.75);
+}
+.pageTitle {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+}
+.button1 {
+  	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  	border-radius: 8px;
+  	background-color: #000;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 20px 32px;
+  	cursor: pointer;
+  	font-size: 24px;
+  	color: #fff;
+}
+.copy3 {
+  	position: absolute;
+  	top: 212px;
+  	left: 79px;
+  	width: 844px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 40px;
+  	font-size: 64px;
+}
+.landingPage {
+  	width: 100%;
+  	position: static;
+  	background-color: #fff;
+  	height: 100%;
+  	overflow: hidden;
+  	text-align: left;
+  	font-size: 48px;
+  	color: #000;
+  	font-family: Inter;
+}

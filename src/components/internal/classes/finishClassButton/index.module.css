@@ -1,0 +1,10 @@
+.button {
+    background-color: black;
+    color: white;
+    align-self: center;
+    width: 15%;
+    &:hover {
+        background-color: green;
+        cursor: pointer;
+    }
+}
