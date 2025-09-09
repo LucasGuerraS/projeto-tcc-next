@@ -1,7 +1,9 @@
 import { getSession } from '@/_utils/session';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080';
+const BASE_ENV = process.env.API_ENDPOINT;
+
+const API_URL = `http://${BASE_ENV}:8080`;
 
 export type UserData = {
   name: string;
